@@ -173,7 +173,7 @@ Future improvements could include:
 
 ---
 
-🎯 Skills Demonstrated
+## 🎯 Skills Demonstrated
 
 - Android application development
 
