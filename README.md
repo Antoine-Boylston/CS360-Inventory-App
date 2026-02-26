@@ -22,14 +22,14 @@ Rather than building a complex enterprise system, the project emphasizes **clean
 
 ## 📱 Application Preview
 
-### Inventory Dashboard
-*(Add screenshot here)*
+### SmartStock Login Screen
+![Login Screenshot](screenshots/login.png)
 
 ### Add Item Screen
-*(Add screenshot here)*
+![Add Item ScreenShot](screenshots/addItem.png)
 
-### Low Inventory Example
-*(Add screenshot here)*
+### Inventory Dashboard / Low Inventory Example
+![Inventory Dashboard](screenshots/sms.png)
 
 ---
 
@@ -37,10 +37,12 @@ Rather than building a complex enterprise system, the project emphasizes **clean
 
 | Folder/File | Description |
 |-------------|-------------|
-| `src/main/java` | Core application logic and activity classes |
-| `src/main/res` | Layouts, UI resources, icons, and styling |
+| `src/main/java` | Java source code for activities, adapters, and database logic |
+| `src/main/res` | UI layouts, resources, and application assets |
 | `AndroidManifest.xml` | Application configuration and permissions |
+| `SmartStock_LaunchPlan.docx` | Project launch plan detailing app concept, Android compatibility, permissions, testing approach, and monetization ideas |
 | `README.md` | Project documentation and reflection |
+| `screenshots` | Folder containing app preview images |
 
 ---
 
@@ -185,11 +187,13 @@ Future improvements could include:
 
 ---
 
-Author
+## Author
 
-Antoine Boylston
-Southern New Hampshire University
-CS-360 Mobile Application Development
-Portfolio Submission
+**Antoine Boylston**  
+Southern New Hampshire University - CS-360 Mobile Application Development  
+Portfolio Submission  
+
+
+---
 
 
