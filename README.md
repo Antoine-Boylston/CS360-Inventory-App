@@ -1,139 +1,195 @@
-# SmartStock Inventory Tracker | Android Application
+# CS-360-Mobile-Application-Development
+## SmartStock Inventory Tracker
 
-**Course:** CS 360 – Mobile Application Development  
-**Author:** Antoine Boylston  
+This repository contains my completed **Android mobile application**, developed for **CS-360 Mobile Application Development** at **Southern New Hampshire University**.
 
----
-
-## Project Overview
-
-SmartStock is a lightweight Android inventory tracking application designed to help individuals and small teams monitor stock levels quickly and easily. The app allows users to add items, update quantities, and receive SMS alerts when inventory reaches zero.
-
-The goal of the project was to design a simple, user-centered application that solves a practical problem without unnecessary complexity.
-
-This project demonstrates mobile development concepts including UI design, local data management, RecyclerView implementation, and runtime permission handling.
+The project focuses on designing a lightweight inventory tracking application that allows users to manage stock levels, update quantities, and receive notifications when inventory runs out.
 
 ---
 
-## Technologies Used
+## 📌 Project Overview
 
-- Java
-- Android Studio
-- RecyclerView
-- SQLite Database
-- Android SDK
-- XML Layout Design
+SmartStock is a user-focused inventory tracking application designed for simplicity and clarity. The goal of the project was to build a practical tool that allows users to:
+
+- Add inventory items  
+- Adjust stock quantities  
+- Receive SMS alerts when inventory reaches zero  
+- Quickly identify low inventory using visual indicators  
+
+Rather than building a complex enterprise system, the project emphasizes **clean UI design, focused functionality, and usability testing**.
 
 ---
-  
-## Key Concepts Demonstrated
 
-- Mobile UI design using Android layouts
-- Dynamic data display using RecyclerView
-- Local database management
+## 📱 Application Preview
+
+### Inventory Dashboard
+*(Add screenshot here)*
+
+### Add Item Screen
+*(Add screenshot here)*
+
+### Low Inventory Example
+*(Add screenshot here)*
+
+---
+
+## 📂 Repository Contents
+
+| Folder/File | Description |
+|-------------|-------------|
+| `src/main/java` | Core application logic and activity classes |
+| `src/main/res` | Layouts, UI resources, icons, and styling |
+| `AndroidManifest.xml` | Application configuration and permissions |
+| `README.md` | Project documentation and reflection |
+
+---
+
+## ⚙️ Technologies Used
+
+- **Java**
+- **Android Studio**
+- **RecyclerView**
+- **SQLite Database**
+- **Android SDK**
+- **XML Layout Design**
+
+---
+
+## 💡 Key Features
+
+- Inventory item creation and management  
+- Quantity tracking with real-time updates  
+- Visual feedback for low inventory  
+- SMS notification when items reach zero  
+- Simple and intuitive user interface  
+
+---
+
+## 🧠 Development Approach
+
+This application was built using an incremental development approach. Core features were developed and tested individually before integrating them into the final product.
+
+The project focused on:
+
+- Modular application structure  
+- Clear UI navigation  
+- Maintainable code organization  
+- Practical usability improvements based on testing  
+
+One of the most valuable lessons from the project came from early usability testing. Terminology that made sense from a maintenance perspective created confusion for new users. Adjusting the language and simplifying workflows significantly improved the overall experience.
+
+---
+
+## 🧩 Example Code
+
+### RecyclerView Adapter Example
+
+```java
+public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.ViewHolder> {
+
+    private List<Item> itemList;
+
+    public InventoryAdapter(List<Item> itemList) {
+        this.itemList = itemList;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        Item item = itemList.get(position);
+        holder.itemName.setText(item.getName());
+        holder.itemQuantity.setText(String.valueOf(item.getQuantity()));
+    }
+}
+```
+---
+
+### Database Helper Example
+
+```java
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "inventory.db";
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, 1);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE inventory (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER)");
+    }
+}
+```
+---
+
+### Runtime Permission Example
+
+```java
+if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+        != PackageManager.PERMISSION_GRANTED) {
+
+    ActivityCompat.requestPermissions(this,
+            new String[]{Manifest.permission.SEND_SMS},
+            SMS_PERMISSION_CODE);
+}
+```
+---
+
+## 🧪 Testing
+
+Testing focused on validating the core workflows of the application:
+
+- Creating new inventory items
+
+- Updating stock quantities
+
+- Preventing negative inventory values
+
+- Triggering SMS alerts at zero inventory
+
+- Handling permission denial gracefully
+
+Testing helped refine the interface and ensured the application behaved reliably across typical user scenarios.
+
+---
+
+## 🚧 Challenges and Improvements
+
+One challenge during development was ensuring the application terminology and workflow made sense to users outside of a maintenance background. Early feedback showed that simplifying the interface and focusing on the most important actions significantly improved usability.
+
+Future improvements could include:
+
+- Cloud synchronization
+
+- Barcode scanning
+
+- Multi-device support
+
+- Inventory analytics
+
+- Custom alert thresholds
+
+---
+
+🎯 Skills Demonstrated
+
+- Android application development
+
+- UI/UX design for mobile devices
+
+- Data management within mobile apps
+
 - Runtime permission handling
-- User-centered design improvements based on usability feedback
+
+- User-centered development
 
 ---
 
-## What I Learned
+Author
 
-Through developing this application I learned the importance of designing software around real user behavior rather than assumptions. Early testing revealed that terminology and workflows that made sense from a development perspective were confusing to users. Simplifying the interface and focusing on core functionality significantly improved usability.
+Antoine Boylston
+Southern New Hampshire University
+CS-360 Mobile Application Development
+Portfolio Submission
 
-This project also strengthened my understanding of structuring Android applications, managing UI components, and handling permissions responsibly.
 
----
-
-## Screenshots
-
-*(Add screenshots here)*
-
----
-  
-
-## User Needs and App Purpose
-
-The app was created to address a common problem: keeping track of inventory in a simple and accessible way. Many inventory systems are overly complex for small operations or personal use. SmartStock focuses on essential functionality so users can quickly see what items they have, update quantities, and be notified when stock runs out.
-
-By prioritizing clarity and ease of use, the app helps reduce mistakes and ensures users can manage inventory without needing specialized training.
-
----
-
-## Screens and Features
-
-The application includes several key screens and features that support a user-centered design:
-
-- Inventory list displaying all tracked items  
-- Ability to add new inventory items  
-- Quantity controls for increasing or decreasing stock  
-- Visual indicators for low or empty inventory  
-- Optional SMS alerts when stock reaches zero  
-
-The interface was intentionally designed to be simple and intuitive. During development, usability feedback helped refine the terminology and workflow so the app would make sense to users without technical or industry-specific knowledge.
-
----
-
-## Development Approach
-
-The application was developed incrementally, focusing on one feature at a time. Core components such as database integration, RecyclerView display, and user interactions were built and tested individually before being combined into the final application.
-
-Organizing the project this way made debugging easier and ensured that each part of the app worked reliably before moving forward. This approach is useful for future development because it encourages modular design and reduces complexity during troubleshooting.
-
----
-
-## Testing and Validation
-
-Testing involved repeatedly performing the primary user actions within the app, including:
-
-- Adding inventory items  
-- Updating quantities  
-- Preventing quantities from dropping below zero  
-- Verifying SMS alerts trigger correctly  
-- Confirming the app behaves properly if SMS permissions are denied  
-
-Testing is critical in mobile development because applications must handle a wide range of user behaviors and device configurations. Through testing, usability improvements were identified and stability issues were resolved.
-
----
-
-## Challenges and Innovation
-
-One of the biggest challenges during development was ensuring the interface was intuitive for users who were unfamiliar with maintenance or technical terminology. Initial designs included terms that made sense from a developer perspective but were confusing during user testing.
-
-Feedback from real-world testing led to simplifying the design, clarifying language, and removing unnecessary screens. This iteration improved the user experience and reinforced the importance of user-centered design.
-
----
-
-## Key Strength of the Project
-
-A strong aspect of this project is the integration of core Android development practices such as structured UI design, dynamic list handling with RecyclerView, local data management, and responsible runtime permission handling for SMS functionality.
-
-These components demonstrate an understanding of both technical implementation and practical usability considerations.
-
----
-
-## Project Structure
-src/main/java – Application logic and activities
-
-src/main/res – Layout files and UI resources
-
-AndroidManifest.xml – App configuration and permissions
-
----
-
-## Future Improvements
-
-Future development could expand the application with features such as:
-
-- Cloud synchronization  
-- Barcode scanning  
-- Custom low-inventory thresholds  
-- Data export functionality  
-- Multi-user support  
-
-These improvements would allow the app to scale from a simple inventory tracker to a more robust business tool.
-
----
-
-## Repository Purpose
-
-This repository serves as a portfolio artifact demonstrating the design and development of a functional Android mobile application as part of the SNHU Computer Science program.
